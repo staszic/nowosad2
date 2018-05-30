@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '8y61!d=f@7h!*7k6^3&kuil(qk0#p@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['nowosad.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['nowosad-test.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
