@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} Gospodarstwo Ogrodnicze Nowosad</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'images/circle_violet.png' %}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{% static 'images/circle_violet.png' %}" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-bar">
+            <div style="display: inline-block;">
+                <a href="{% url 'main:index' %}">
+                    <img class="logo" src="{% static 'images/logo.png' %}" />
+                </a>
+            </div>
+            <div style="display: inline-block; float: right; padding-right: 10px; padding-top: 5px; text-align: right; color: white;">
+                <h4>Gospodarstwo Ogrodnicze <br />Barbara i Andrzej Nowosad</h4>
+                <h5>ul. Starowiejska 44, Smolec<br />55-080 Kąty Wrocławskie</h5>
+            </div>
+
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'main:index' %}">Strona Główna</a></li>
+                <li><a href="{% url 'plants:index' %}">Oferta</a></li>
+                <li><a href="{% url 'contact:index' %}">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <img class="bg-image" src="{% static 'images/background.jpg' %}" />
+    {% block content %}{% endblock %}
+    <footer>
+        <div class="row">
+            <div id="map" class="col-md-4 map-element container"></div>
+        </div>
+        <div class="row footer-content">
+            <br />
+            <strong>
+                <p align="center">&copy; Gospodarstwo Ogrodnicze Andrzej Nowosad</p>
+            </strong>
+            <br />
+            <br />
+        </div>
+    </footer>
+    <script>
+        function initMap() {
+            google.maps.visualRefresh = true;
+            var smolec = { lat: 51.0758446, lng: 16.870288 };
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: smolec,
+                zoom: 11
+            });
+            var outerCoords = [
+                { lat: 51.074372, lng: 16.868557 },
+                { lat: 51.074329, lng: 16.869171 },
+                { lat: 51.075890, lng: 16.869725 },
+                { lat: 51.075864, lng: 16.870228 },
+                { lat: 51.075730, lng: 16.870382 },
+                { lat: 51.074281, lng: 16.869897 },
+                { lat: 51.073358, lng: 16.871550 },
+                { lat: 51.072930, lng: 16.871440 },
+                { lat: 51.073128, lng: 16.870732 },
+                { lat: 51.071299, lng: 16.870087 },
+                { lat: 51.071381, lng: 16.869394 },
+                { lat: 51.073304, lng: 16.870072 },
+                { lat: 51.073742, lng: 16.868320 }
+            ];
+            var polygon = new google.maps.Polygon({
+                paths: outerCoords,
+                strokeColor: '#FFC107',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FFC107',
+                fillOpacity: 0.35
+            });
+            polygon.setMap(map);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: smolec,
+                title: 'Gospodarstwo Ogrodnicze - Andrzej Nowosad'
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_5MetfhKkVwWxbqmCKHcKgm30zpwCRBI&callback=initMap"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="row content">
+    <h2 style="margin-top: 40px; margin-bottom: 20px;">O firmie</h2>
+    <p align="justify" style="width: 60%; margin-bottom: 12px;">Gospodarstwo Ogrodnicze Nowosad to rodzinna firma istniejąca na rynku od 1980 roku.</p>
+    <p align="justify" style="margin-bottom: 12px; width: 60%;">Obecnie gospodarstwo zajmuje się produkcją kwiatów doniczkowych.
+    W ofercie handlowej znajdują się <strong>kwiaty rabatowe, balkonowe, byliny i trawy</strong> oraz szeroki wybór
+    <strong>chryzantem doniczkowych.</strong> </p>
+    <p align="justify" style="width: 60%; margin-bottom: 12px;">Uprawa prowadzona jest na powierzchni ponad 12 000m<sup>2</sup> pod osłonami oraz na 2ha kontenerowni.</p>
+    <p align="justify" style="width: 60%;">Gospodarstwo mieści się w podwrocławskim Smolcu. Serdecznie zapraszamy do zapoznania się naszą ofertą lub do odwiedzenia nas osobiście.</p>
+    <br />
+    <br />
+    <p align="right"><a href="{% url 'plants:index' %}" class="btn btn-primary btn-lg">Sprawdź naszą ofertę &raquo;</a></p>
+</div>
+{% endblock %}

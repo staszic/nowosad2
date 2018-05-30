@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ plant.plant_name }} | {% endblock %}
+
+{% block content %}
+<div class="row content">
+    <div class="col-md-3 item-container">
+        <img class="item-img" src="{{ MEDIA_ROOT }}{{ plant.img_src.url }}" />
+        <div class="caption">
+            <p>{{ plant.plant_name }}</p>
+            <p>{{plant.category.category_name}}</p>
+        </div>
+    </div>
+    <div style="width:100%; text-align: center;">
+        <p>{{ plant.description }}</p>
+    </div>
+</div>
+{% endblock %}

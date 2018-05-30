@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Oferowane rośliny | {% endblock %}
+
+{% block content %}
+    {% if plants_list %}
+<div class="row content">
+    <div style="width:100%">
+        <h1 style="text-align: center; margin-bottom:10px;">Rośliny w ofercie:</h1>
+    </div>
+    {% for plant in plants_list %}
+        <div class="col-sm-6 col-md-3 list-container">
+            <img class="list-img" src="{{ MEDIA_ROOT }}{{ plant.img_src.url }}" />
+            <div class="caption">
+                <p>{{ plant.plant_name }}</p>
+                <p>{{plant.category.category_name}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    {% else %}
+<div class="row content">
+    <div style="width:100%">
+        <h1 style="text-align: center; margin-bottom:10px;">Nie ma żadnych roślin w bazie danych.</h1>
+    </div>
+</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Kontakt | {% endblock %}
+
+{% block content %}
+<div class="row content">
+    <div style="width:100%">
+        <h1 style="text-align: center; margin-bottom:10px;">Kontakt</h1>
+    </div>
+    <div class="col-md-6">
+        <div class="contact-form">
+            {% if not message == '' %}
+                <h3>{{ message }}</h3>
+                <hr />
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ contact_form }}
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6" style="">
+        <br />
+        <br />
+            <h3 align="center">Gospodarstwo Ogrodnicze <br />Barbara i Andrzej Nowosad</h3>
+            <p align="center">
+                    ul. Starowiejska 44, Smolec<br />
+                    55-080 Kąty Wrocławskie<br />
+                    <br />
+                    <strong>tel.:</strong><br />
+                    +48 602 441 214<br />
+                    +48 695 663 337<br />
+                    <br />
+                    <strong>tel / fax:</strong><br />
+                    +48 71 316 85 99
+            </p>
+            <p align="center">
+                <br />
+                <strong>e-mail:</strong><br /><a href="mailto:andrzej-nowosad@o2.pl">andrzej-nowosad@o2.pl</a><br />
+            </p>
+    </div>
+</div>
+{% endblock %}
